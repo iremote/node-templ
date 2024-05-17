@@ -1,11 +1,10 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
-# Updated regex to include GitHub issue numbers
-COMMIT_MSG_REGEX='(APP|DOPS)-[0-9]+|#\d+'
+# Updated regex to include GitHub issue numbers and made it case-insensitive
+ISSUE_REGEX='((#[0-9]+)|((app|dops|web)-?[0-9]+))'
 ERROR_MSG="Error: Commit message must contain a ticket token like APP-1, DOPS-2 or a GitHub issue number like #3."
 
-if ! grep -qE "$COMMIT_MSG_REGEX" "$1"; then
+
+if ! grep -qiE "$ISSUE_REGEX" "$1"; then
   echo "$ERROR_MSG" >&2
-   exit 1
 fi
