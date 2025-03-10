@@ -15,6 +15,14 @@ GitHub template repository for Node.js projects.
 
 iRemote, Inc.
 
+# Upgrading the project
+
+Upgrade the dependencies in package.json
+
+```bash 
+npx npm-check-updates -u
+```
+
 ## License
 
 This project is [MIT licensed](./LICENSE).
